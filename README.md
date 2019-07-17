@@ -10,6 +10,7 @@
 - [Example](#example)
 - [Installation](#installation)
 - [Clone](#clone)
+- [Usage](#usage)
 - [License](#license)
 
 ---
@@ -52,5 +53,15 @@ send($socket, $message);
 ### Clone
 
 Clone this repo to your local machine using `https://github.com/pivchenkosv/sockets.git`
+
+## Usage
+
+>Server
+[![asciicast](https://asciinema.org/a/TCoLC2uoMBbdpN9s68rFok5c1.svg)](https://asciinema.org/a/TCoLC2uoMBbdpN9s68rFok5c1)
+
+>Client
+[![asciicast](https://asciinema.org/a/257814.svg)](https://asciinema.org/a/257814)
+
+---
 
 ## License  [![License](http://img.shields.io/:license-mit-blue.svg?style=flat)](https://github.com/pivchenkosv/sockets/blob/master/LICENSE)

@@ -15,7 +15,7 @@ if (array_key_exists(1, $argv)) {
                 while ($socket) {
                     $result = acceptMessage($socket);
                     $message = $result['message'];
-                    echo $message . PHP_EOL;
+                    echo 'Received message: ' . $message . PHP_EOL;
                     $spawn = $result['spawn'];
                     if ($message === 'close'){
                         closeConnection($socket, $spawn);
