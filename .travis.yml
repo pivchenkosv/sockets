@@ -1,0 +1,6 @@
+language: php
+php:
+  - 7.2.0
+install: composer install
+script:
+  - make lint
