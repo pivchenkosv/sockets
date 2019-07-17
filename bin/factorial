@@ -1,0 +1,53 @@
+#!/usr/bin/php
+<?php
+
+require_once __DIR__ . '/../src/server.php';
+require_once __DIR__ . '/../src/client.php';
+
+if (array_key_exists(1, $argv)) {
+    $spawn = null;
+    switch ($argv[1]) {
+        case 'start-server':
+            {
+                echo 'starting server...' . PHP_EOL;
+                $socket = startServer();
+
+                while ($socket) {
+                    $result = acceptMessage($socket);
+                    $message = $result['message'];
+                    echo $message . PHP_EOL;
+                    $spawn = $result['spawn'];
+                    if ($message === 'close'){
+                        closeConnection($socket, $spawn);
+                        break;
+                    }
+                    $result = calculateFactorial($message);
+                    echo 'factorial = ' . $result . PHP_EOL;
+                    sendResult($spawn, $result);
+                }
+
+                break;
+            }
+        case 'send':
+            {
+                echo '...' . PHP_EOL;
+                $socket = establishConnection();
+                if (array_key_exists(2, $argv)) {
+                    send($socket, $argv[2]);
+                } else {
+                    send($socket);
+                }
+                break;
+            }
+        default:
+            {
+                echo "Command '$argv[1]' is not defined" . PHP_EOL;
+            }
+    }
+} else {
+    echo "Usage: factorial <command> [<args>]" . PHP_EOL .
+        "   commands:" . PHP_EOL .
+        "       start-server - starts server" . PHP_EOL .
+        "       send <number> - sends message" . PHP_EOL;
+}
+

@@ -1,0 +1,26 @@
+{
+    "name": "stanislau/socket-factorial",
+    "authors": [
+        {
+            "name": "Stanislau Piuchanka",
+            "email": "pivchenko.stas.1999@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "src/server.php",
+            "src/client.php"
+        ]
+    },
+    "bin": [
+        "bin/factorial"
+    ],
+    "scripts": {
+        "codesniffer": "./vendor/bin/phpcs -- --standard=PSR12 src",
+        "codesniffer-fix": "./vendor/bin/phpcbf -- --standard=PSR12 src"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.4"
+    }
+}
